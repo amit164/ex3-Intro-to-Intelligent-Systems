@@ -21,13 +21,13 @@ The agent finds all relevant balls to the goal. For every ball, the agent checks
 I chose this formula because the probability to sucsess a kick action is higher than the probability to move do a direction. 
 Then, the agent looks after an option that includes the first place of the shortest pathand choose it.
 
-In order to implement this agent, I created a Grapgh data structure using (this)[https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/] implementation.
-Also, in order to find the shortest path I used a BFS algorithem I found (here)[https://www.geeksforgeeks.org/shortest-path-unweighted-graph/]
+In order to implement this agent, I created a Grapgh data structure using [this](https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/) implementation.
+Also, in order to find the shortest path I used a BFS algorithem I found [here](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/)
 
 ## Dependencies:
 * Ubuntu16 O.S
 * python 2.7.18
-* pddlsim (more info (here)[https://bitbucket.org/galk-opensource/executionsimulation/src/master/])
+* pddlsim (more info [here](https://bitbucket.org/galk-opensource/executionsimulation/src/master/))
 
 ## Installation:
 1. Clone the repository:  
@@ -39,4 +39,5 @@ Also, in order to find the shortest path I used a BFS algorithem I found (here)[
     $ python my_executive <domain_file> <problem_file>
     ```
     > _domain_file_ is one of the domains uploaded here (maze_domain_multi_effect.pddl or simple_football_domain_multi.pddl)
+ 
     > _problem_file_ is a problem file for the domain you chose. You can use one of those here or create one of your own.
