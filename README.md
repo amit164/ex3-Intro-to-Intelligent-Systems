@@ -17,9 +17,9 @@ If this player is relevant (there is a goal that includes it), the agent checks 
 > Note: if there is more than one goal that relevant to this player, the agent will chose it randomly.
 
 ##### Football:
-The agent finds all relevant balls to the goal. For every ball, the agent checks the distance between the robot and the ball. If the robot and the ball is in the same place, the agent chooses the best **kick** action. Otherwise, the agent finds the minimum distance from it place to **goal** by calculating the formula:
+The agent finds all relevant balls to the goal. For every ball, the agent checks the distance between the robot and the ball. If the robot and the ball is in the same place, the agent chooses the best **kick** action. Otherwise, the agent finds the minimum distance from it place to **goal** by calculating the formula: 
 
-<div align="center">_0.5 * distance to ball^2 + 0.2 * distance between ball and the goal^3_</div>  
+<div align="center"> <em> 0.5 * distance to ball^2 + 0.2 * distance between ball and the goal^3 </em> </div><br/>
 
 I chose this formula because the probability to sucsess a kick action is higher than the probability to move do a direction. 
 Then, the agent looks after an option that includes the first place of the shortest pathand choose it.
