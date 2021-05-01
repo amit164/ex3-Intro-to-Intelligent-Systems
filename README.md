@@ -39,6 +39,7 @@ Also, in order to find the shortest path I used a BFS algorithem I found [here](
     ```
 2. Write those commands in the terminal:
     ```
+    $ cd ex3-Intro-to-Intelligent-Systems
     $ python my_executive <domain_file> <problem_file>
     ```
     > _domain_file_ is one of the domains uploaded here (maze_domain_multi_effect.pddl or simple_football_domain_multi.pddl)
