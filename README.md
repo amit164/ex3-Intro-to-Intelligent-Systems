@@ -21,11 +21,11 @@ The agent finds all relevant balls to the goal. For every ball, the agent checks
 
 <div align="center">_0.5 * distance to ball^2 + 0.2 * distance between ball and the goal^3_</div>
 
+
 I chose this formula because the probability to sucsess a kick action is higher than the probability to move do a direction. 
 Then, the agent looks after an option that includes the first place of the shortest pathand choose it.
 
-In order to implement this agent, I created a Grapgh data structure using [this](https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/) implementation.
-Also, in order to find the shortest path I used a BFS algorithem I found [here](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/)
+In order to implement this agent, I created a Grapgh data structure using [this](https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/) implementation.  Also, in order to find the shortest path I used a BFS algorithem I found [here](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/)
 
 ## Dependencies:
 * Ubuntu16 O.S
