@@ -17,11 +17,15 @@ If this player is relevant (there is a goal that includes it), the agent checks 
 > Note: if there is more than one goal that relevant to this player, the agent will chose it randomly.
 
 ##### Football:
-The agent finds all relevant balls to the goal. For every ball, the agent checks the distance between the robot and the ball. If the robot and the ball is in the same place, the agent chooses the best **kick** action. Otherwise, the agent finds the minimum distance from it place to **goal** by calculating the formula: _0.5 * distance to ball^2 + 0.2 * distance between ball and the goal^3_
+The agent finds all relevant balls to the goal. For every ball, the agent checks the distance between the robot and the ball. If the robot and the ball is in the same place, the agent chooses the best **kick** action. Otherwise, the agent finds the minimum distance from it place to **goal** by calculating the formula:
+
+_0.5 * distance to ball^2 + 0.2 * distance between ball and the goal^3_
+
 I chose this formula because the probability to sucsess a kick action is higher than the probability to move do a direction. 
 Then, the agent looks after an option that includes the first place of the shortest pathand choose it.
 
 In order to implement this agent, I created a Grapgh data structure using [this](https://www.geeksforgeeks.org/generate-graph-using-dictionary-python/) implementation.
+
 Also, in order to find the shortest path I used a BFS algorithem I found [here](https://www.geeksforgeeks.org/shortest-path-unweighted-graph/)
 
 ## Dependencies:
