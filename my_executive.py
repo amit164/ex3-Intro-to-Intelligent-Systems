@@ -15,14 +15,28 @@ domain_path = sys.argv[1]
 problem_path = sys.argv[2]
 
 
+def check_conflicts(goals_list):
+    for sub_goal in goals_list:
+        for check_goal in goals_list:
+            if sub_goal != check_goal:
+                if sub_goal[0] == check_goal[0] and sub_goal[1] != check_goal[1]:
+                    goals_list.remove(check_goal)
+    return goals_list
+
+
 def get_current_goal(goal_option):
     if isinstance(goal_option, Literal):
-        return goal_option.args
+        return [goal_option.args]
     goals_list = []
     for sub_goal in goal_option.parts:
-        goals_list.append(get_current_goal(sub_goal))
-        # return get_current_goal(sub_goal)
-    return random.choice(goals_list)
+         goals = get_current_goal(sub_goal)
+         if len(goals) == 1:
+             goals_list.append(goals[0])
+         else:
+             goals_list.extend(goals)
+        #return get_current_goal(sub_goal)
+    goals_list = check_conflicts(goals_list)
+    return goals_list
 
 
 def find_ball_place(state, ball):
@@ -83,7 +97,9 @@ class BehaviorExecutor(Executor):
             for goal in self.services.goal_tracking.uncompleted_goals:
                 # CHECK IF PLAYER ON THIS OPTION IS RELEVANT TO THIS GOAL
                 if self.is_relevant(goal, player):
-                    goal_tile = get_current_goal(goal)[1]
+                    goals_list = get_current_goal(goal)
+                    # goal_tile = get_current_goal(goal)[0]
+                    goal_tile = random.choice(goals_list)[1]
                 else:
                     continue
             if goal_tile is None:
@@ -185,7 +201,10 @@ class BehaviorExecutor(Executor):
         for goal in self.services.goal_tracking.uncompleted_goals:
             # CHECK IF BALL RELEVANT TO THIS GOAL
             if self.is_relevant(goal, min_ball):
-                return get_current_goal(goal)[1]
+                list_goals = get_current_goal(goal)
+                for goal in list_goals:
+                    if goal[0] == min_ball:
+                        return goal[1]
 
 
 print LocalSimulator().run(domain_path, problem_path, BehaviorExecutor())
